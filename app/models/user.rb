@@ -1,5 +1,5 @@
 class User < ApplicationRecord
-	validates :nombre,:apellido, presence: true,length:{minimum: 3}
-	validates :email, presence:true,format:{ with:/\A([^@\s]+)@((?:[-a-z0-9]+\.)+[a-z]{2,})\z/i}
+	validates :nombre,:apellido,length:{minimum: 3, message:"introduce mas de 3 caracteres"}
+	validates :email,format:{ with:/\A([^@\s]+)@((?:[-a-z0-9]+\.)+[a-z]{2,})\z/i, message:"correo incorrecto"}
 
 end
