@@ -1,15 +1,17 @@
 # Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
 
 one:
-  nombre: 
-  edad: 
-  sexo: 
-  tipo: 
-  alive: 
+  nombre: MyText
+  edad: 1
+  sexo: MyText
+  tipo: MyText
+  alive: false
+  user: one
 
 two:
-  nombre: 
-  edad: 
-  sexo: 
-  tipo: 
-  alive: 
+  nombre: MyText
+  edad: 1
+  sexo: MyText
+  tipo: MyText
+  alive: false
+  user: two
