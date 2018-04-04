@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>Practico</title>
+    <%= csrf_meta_tags %>
+
+    <%= stylesheet_link_tag    'application', media: 'all', 'data-turbolinks-track': 'reload' %>
+    <%= javascript_include_tag 'application', 'data-turbolinks-track': 'reload' %>
+  </head>
+
+  <body>
+	<div class="container">
+		<div class="col-12 my-2">
+			<h3 class="text-center">Caso Practico</h3>
+			<hr>
+			<ul class="fm-nav justify-content-center nav bg-dark text-white">
+				<li class="nav-item">
+					<%= link_to "inicio",root_path, class:"nav-link links"%>
+				</li>
+				<li class="nav-item">
+					<%= link_to "usuarios",root_path, class:"nav-link links" %>
+				</li>
+				<li class="nav-item">
+					<%= link_to "animales",root_path, class:"nav-link links" %>
+				</li>
+			</ul>
+		</div>
+    	<%= yield %>
+	</div>
+  </body>
+</html>
