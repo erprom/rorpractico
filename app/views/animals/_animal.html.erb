@@ -1,8 +1,7 @@
 
   <p>
-    <%=link_to animal.nombre, [animal.user, animal] %>
+    <%=link_to animal.nombre, user_animal_path(@user,animal) %>
   </p>
- 
   <p>
     <strong>edad:</strong>
     <%= animal.edad %>
@@ -14,5 +13,7 @@
   <p>
     <strong>tipo:</strong>
     <%= animal.tipo %>
+
   </p>
+  <%= link_to "editar", edit_user_animal_path(@user,animal), class:"btn btn-warning" %>
 

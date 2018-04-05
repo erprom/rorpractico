@@ -1,0 +1,48 @@
+<%= form_for [@animal.user, @animal] do |f| %>
+<% if @animal.user.errors.any? %>
+      <div>
+        <h2>
+        <%= pluralize(@animal.user.errors.count, "error") %> han impedido que el usuario sea añadido:
+          </h2>
+          <ul>
+            <% @animal.user.errors.full_messages.each do |msg| %>
+              <li><%= msg %></li>
+              <% end %>
+            </ul>
+      </div>
+      <% end %>
+    
+    <div class="form-group">
+      <%= f.label :nombre %><br>
+      <%= f.text_field :nombre , class:"form-control"%>
+    </div>
+    <div class="form-group">
+      <%= f.label :edad %><br>
+      <%= f.text_field :edad , class:"form-control"%>
+    </div>
+    <div class="form-group">
+    <%= f.radio_button(:sexo, "masculino") %>
+    <%= f.label(:sexo_masculino,"Masculino") %>
+    <%= f.radio_button(:sexo, "femenino") %>
+    <%= f.label(:sexo_femenino,"femenino") %>
+
+    </div>
+    <div class="form-group">
+      <%= f.label :tipo %><br>
+      <%= f.select(:tipo,options_for_select([['dog', 'dog'], ['rat','rat'],['cat','cat'],['chinchilla','chinchilla']])) %>      
+    </div>
+    <div class="form-group">
+      <%= f.label :alive %><br>
+      <%= f.checkbox(:alive,"Is alive?") %>
+    </div>
+    <div class="form-group">
+      <% if @user.animals.count < 6 %> 
+        <%= f.submit 'Guardar Animal', class:"btn btn-primary"%>
+      <% else %>
+        <%= f.submit 'Guardar Animal', class:"btn btn-primary", disabled:true %>
+        <p>Tienes el Maximo de animales permitidos</p>
+      <% end %>
+    </div>
+  </div>
+</div>
+<% end %>
