@@ -17,10 +17,14 @@ class AnimalsController < ApplicationController
 	end
 	def create
 	    @user = User.find(params[:user_id])
-	    @animal = @user.animals.create(animal_params)
-	    if @animal.save
-	    redirect_to user_path(@user)
-		else
+	    if @user.animals.count <6
+	    	@animal = @user.animals.create(animal_params)
+		    if @animal.save
+		    	redirect_to user_path(@user)
+			else
+				render 'new'
+			end
+			else
 			render 'new'
 		end
   	end
