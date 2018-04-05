@@ -1,0 +1,25 @@
+<h3>pagina usuarios</h3>
+<table class="table">
+  <tr>
+    <th>Nombre</th>
+    <th>Apellido</th>
+    <th>email</th>
+  </tr>
+
+<% @users.each do |user| %>
+    <tr>
+      <td><%= user.nombre %></td>
+      <td><%= user.apellido %></td>
+      <td><%= user.email %></td>
+      <td>
+      <%= link_to 'Ver', user_path(user), class:"btn btn-info" %>
+      <%= link_to "editar", edit_user_path(user), class:"btn btn-warning" %>
+      <%= link_to 'Borrar', user_path(user),
+              method: :delete,
+              data: { confirm: '¿Estás seguro?' }, class:"btn btn-danger"%>
+      </td>
+    </tr>
+  <% end %>
+  </table>
+
+  <%= link_to "Añadir Miembro",new_user_path , class:"btn btn-primary" %>

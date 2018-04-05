@@ -1,0 +1,19 @@
+<p>
+  <strong>Nombre:</strong>
+  <%= @user.nombre %>
+</p>
+ 
+<p>
+  <strong>apellido:</strong>
+  <%= @user.apellido %>
+</p>
+<p>
+  <strong>email:</strong>
+  <%= @user.email %>
+</p>
+<h2>animales</h2>
+<%= render @user.animals %>
+
+
+<%= link_to "Añadir Animal",new_user_animal_path(@user), class:"btn btn-primary" %>
+<%= link_to "Volver", users_path, class:"btn btn-danger" %>
