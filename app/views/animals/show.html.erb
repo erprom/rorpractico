@@ -15,5 +15,11 @@
   <strong>tipo:</strong>
   <%= @animal.tipo %>
 </p>
+<p>
+  <strong>Esta vivo?:</strong>
+  <%= @animal.alive %>
+</p>
+
+
 <%= link_to "volver a "+@user.nombre, user_path(@user), class:"btn btn-warning" %>
 <%= link_to "Volver a Usuarios", users_path, class:"btn btn-danger" %>

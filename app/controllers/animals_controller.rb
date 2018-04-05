@@ -18,7 +18,7 @@ class AnimalsController < ApplicationController
 	def create
 	    @user = User.find(params[:user_id])
 	    #Establecemos limite de animales para user
-	    if @user.animals.count <6
+	    if @user.animals.count <=4
 	    	@animal = @user.animals.create(animal_params)
 		    if @animal.save
 		    	redirect_to user_path(@user)
@@ -27,7 +27,7 @@ class AnimalsController < ApplicationController
 				render 'new'
 			end
 			else
-				@errors="Tienes mas de 5 animales"
+				@errors="no puedes tener mas de 5 animales"
 			render 'new'
 		end
   	end
@@ -50,6 +50,6 @@ class AnimalsController < ApplicationController
  
   private
     def animal_params
-      params.require(:animal).permit(:nombre,:edad,:sexo,:tipo)
+      params.require(:animal).permit(:nombre,:edad,:sexo,:tipo,:alive)
     end
 end
