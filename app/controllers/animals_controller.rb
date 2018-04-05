@@ -1,6 +1,7 @@
 class AnimalsController < ApplicationController
 	def show
-		@animal = Animal.find(params[:id])
+		@user = User.find(params[:user_id])
+	    @animal = @user.animals.find(params[:id])
 	end
 	def new
 		@user = User.find(params[:user_id])
