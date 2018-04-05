@@ -5,9 +5,12 @@
 </div>
 <div class="row">
   <div class="col-6">
-<%= form_for ([@user, @user.animals.build]) do |f| %>
-
-    <%= @user.animals.count %>
+    <%= form_for ([@user, @user.animals.build]) do |f| %>
+    <% if @errors %>
+    <div class="">
+      <p><%= @errors %></p>
+    </div>
+    <% end %>
     <div class="form-group">
       <%= f.label :nombre %><br>
       <%= f.text_field :nombre , class:"form-control"%>

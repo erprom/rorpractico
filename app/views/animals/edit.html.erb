@@ -5,9 +5,12 @@
 </div>
 <div class="row">
   <div class="col-6">
-<%= form_for [@animal.user, @animal] do |f| %>
-
-    <%= @user.animals.count %>
+    <%= form_for [@animal.user, @animal] do |f| %>
+    <% if @errors %>
+      <div class="">
+        <p><%= @errors %></p>
+      </div>
+    <% end %>
     <div class="form-group">
       <%= f.label :nombre %><br>
       <%= f.text_field :nombre , class:"form-control"%>
@@ -17,23 +20,26 @@
       <%= f.text_field :edad , class:"form-control"%>
     </div>
     <div class="form-group">
-    <%= f.radio_button(:sexo, "masculino") %>
-    <%= f.label(:sexo_masculino,"Masculino") %>
-    <%= f.radio_button(:sexo, "femenino") %>
-    <%= f.label(:sexo_femenino,"femenino") %>
-
+      <%= f.radio_button(:sexo, "masculino") %>
+      <%= f.label(:sexo_masculino,"Masculino") %>
+      <%= f.radio_button(:sexo, "femenino") %>
+      <%= f.label(:sexo_femenino,"femenino") %>
     </div>
     <div class="form-group">
       <%= f.label :tipo %><br>
-      <%= f.select(:tipo,options_for_select([['dog', 'dog'], ['rat','rat'],['cat','cat'],['chinchilla','chinchilla']])) %>      
+      <%= f.select(:tipo,
+        options_for_select(
+        [['dog', 'dog'],
+         ['rat','rat'],
+         ['cat','cat'],
+         ['chinchilla','chinchilla']]))
+      %>      
     </div>
     <div class="form-group">
 
     </div>
     <div class="form-group">
-      
-        <%= f.submit 'Guardar Animal', class:"btn btn-primary"%>
-      
+      <%= f.submit 'Guardar Animal', class:"btn btn-primary"%>
     </div>
   </div>
 </div>
