@@ -3,18 +3,22 @@ class AnimalsController < ApplicationController
 		@user = User.find(params[:user_id])
 		@animal = @user.animals.find(params[:id])
 	end
+
 	def show
 		@user = User.find(params[:user_id])
 	    @animal = @user.animals.find(params[:id])
 	end
+
 	def new
 		@user = User.find(params[:user_id])
 		@animal = @user.animals.new
 	end
+
 	def edit
 		@user = User.find(params[:user_id])
 	    @animal = @user.animals.find(params[:id])
 	end
+
 	def create
 	    @user = User.find(params[:user_id])
 	    #Establecemos limite de animales para user
@@ -31,6 +35,7 @@ class AnimalsController < ApplicationController
 			render 'new'
 		end
   	end
+
   	def update
   		@user = User.find(params[:user_id])
   		@animal = @user.animals.find(params[:id])
@@ -41,15 +46,17 @@ class AnimalsController < ApplicationController
   			render 'edit'
   		end
   	end
+
   	def destroy
 	    @user = User.find(params[:user_id])
 	    @animal = @user.animals.find(params[:id])
 	    @animal.destroy
 	    redirect_to user_path(@user)
   	end
- 
-  private
-    def animal_params
-      params.require(:animal).permit(:nombre,:edad,:sexo,:tipo,:alive)
-    end
+
+	private
+	
+    	def animal_params
+      		params.require(:animal).permit(:nombre,:edad,:sexo,:tipo,:alive)
+    	end
 end
