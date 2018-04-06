@@ -21,12 +21,13 @@ class AnimalsController < ApplicationController
 
 	def create
 	    @user = User.find(params[:user_id])
-	    #Establecemos limite de animales para user
+	    #Establecemos límite de animales para user
 	    if @user.animals.count <=4
 	    	@animal = @user.animals.create(animal_params)
 		    if @animal.save
 		    	redirect_to user_path(@user)
 			else
+				#se crea variable errors para poder informar del formulario no valido
 				@errors="falta algun dato por rellenar"
 				render 'new'
 			end
