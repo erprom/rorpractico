@@ -1,3 +1,40 @@
-<%= render @user.animals %>
-<%= link_to "volver a "+@user.nombre, user_path(@user), class:"btn btn-warning" %>
-<%= link_to "Volver a Usuarios", users_path, class:"btn btn-danger" %>
+<div class="row my-2">
+  <div class="col">
+    <table class="table table-striped table-hover">
+    <tr>
+        <th>Nombre</th>
+        <td> <%= @animal.nombre %> </td>
+      </tr>
+      <tr>
+        <th>Edad</th>
+        <td> <%= @animal.edad %> </td>
+      </tr>
+      <tr>
+        <th>Sexo</th>
+        <td> <%= @animal.sexo %> </td>
+      </tr>
+      <tr>
+        <th>Tipo</th>
+        <td><%= @animal.tipo %></td>
+      </tr>
+      <tr>
+        <th>Esta vivo?</th>
+        <td>
+          <% if @animal.alive %>
+            si
+          <% else %>
+            no
+          <% end %>
+        </td>
+      </tr>
+    </table>
+  </div>
+</div>
+<footer>
+  <div class="row">
+    <div class="col text-center">
+      <%= link_to "volver a "+@user.nombre, user_path(@user), class:"btn btn-warning" %>
+      <%= link_to "Volver a Usuarios", users_path, class:"btn btn-danger" %>
+    </div>
+  </div>
+</footer>

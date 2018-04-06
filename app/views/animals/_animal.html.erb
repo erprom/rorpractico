@@ -1,26 +1,17 @@
+<div class="row mt-2">
+  <div class="col">
+    <table class="table table-striped table-hover">
+      <tr>
+        <th>
+          <%=link_to animal.nombre, user_animal_path(@user,animal) %>
+        </th>
+        <td class="text-right">
+          <%= link_to "editar", edit_user_animal_path(@user,animal), class:"btn btn-warning" %>
+        </td>
+      </tr>
 
-  <p>
-    <%=link_to animal.nombre, user_animal_path(@user,animal) %>
-  </p>
-  <p>
-    <strong>edad:</strong>
-    <%= animal.edad %>
-  </p>
-  <p>
-    <strong>sexo:</strong>
-    <%= animal.sexo %>
-  </p>
-  <p>
-    <strong>tipo:</strong>
-    <%= animal.tipo %>
-  </p>
-  <p>
-    <strong>Esta vivo?</strong>
-    <% if animal.alive %>
-    si
-    <% else %>
-    no
-    <% end %>
-  </p>
-  <%= link_to "editar", edit_user_animal_path(@user,animal), class:"btn btn-warning" %>
+    </table>
+  </div>
+</div>
+  
 

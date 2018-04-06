@@ -4,9 +4,9 @@
     <table class="table table-striped table-hover">  
       <% @users.each do |user| %>
         <tr>
-          <td>
+          <th>
             <%=link_to user.nombre,user_path(user) %>
-          </td>
+          </th>
     
           <td class="text-right">
             <%= link_to "editar", edit_user_path(user), class:"btn btn-warning" %>
