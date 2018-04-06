@@ -16,13 +16,11 @@
   </p>
   <p>
     <strong>Esta vivo?</strong>
-    <%= animal.alive %>
+    <% if animal.alive %>
+    si
+    <% else %>
+    no
+    <% end %>
   </p>
-
-  <p>
-  <%= link_to 'Borrar animal', [animal.user, animal],
-              method: :delete,
-              data: { confirm: '¿Estás seguro?' } %>
-</p>
   <%= link_to "editar", edit_user_animal_path(@user,animal), class:"btn btn-warning" %>
 
